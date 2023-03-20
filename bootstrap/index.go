@@ -3,6 +3,7 @@ package bootstrap
 import (
 	"gingon-boilerplate/configs"
 	"gingon-boilerplate/configs/app_config"
+	"gingon-boilerplate/configs/cors_config"
 	"gingon-boilerplate/database"
 	"gingon-boilerplate/routes"
 	"log"
@@ -26,6 +27,7 @@ func BootstrapApp() {
 
 	// Run Gin/Other Engine Framework here with them routes
 	app := gin.Default()
+	app.Use(cors_config.CorsConfig())
 	routes.InitRoute(app)
 	app.Run(app_config.PORT)
 }
