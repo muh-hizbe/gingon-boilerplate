@@ -16,12 +16,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type File struct {
-	Name string `default:"here.png"`
-	Path string `default:"./public/images/"`
-	Age  int    `default:"23"`
-}
-
 const DefaultPathAssetImage = "./public/images/"
 const DefaultPathAssetFile = "./public/files/"
 
