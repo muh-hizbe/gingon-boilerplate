@@ -8,4 +8,6 @@
 ⌨️   migrate command example for postgresql database
 
 ```migrate -database "postgres://postgres:@localhost:5432/gin_gonic?sslmode=disable" -path database/migrations up```
+
+```migrate -database "postgres://postgres:@localhost:5432/gin_gonic?sslmode=disable" -path database/migrations down```
 -   for other databases, follow documentation [here](https://github.com/golang-migrate/migrate#databases)

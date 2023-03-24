@@ -15,6 +15,7 @@ func v1Route(app *gin.RouterGroup) {
 	route.GET("/user", user_controller.GetAll)
 	route.GET("/auth/user", middleware.AuthMiddleWare, user_controller.GetAll)
 	route.GET("/user/:id", user_controller.GetById)
+	route.POST("/user", user_controller.Create)
 	route.GET("/foo", home_controller.Index)
 	route.POST("/image", utils.HandleFileUpload, home_controller.StoreImage)
 	route.POST("/image-handler", home_controller.StoreImageHandler)
