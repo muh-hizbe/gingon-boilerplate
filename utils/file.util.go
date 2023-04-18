@@ -101,7 +101,7 @@ func HandleRemoveFile(filename string) error {
 
 func SaveImage(image image.Image, fileHeader *multipart.FileHeader, imagename string) bool {
 	var errSave error
-	if fileHeader.Size > 2000000 { // 2Mb
+	if fileHeader.Size > 2048000 { // 2Mb
 		srcImage := imaging.Resize(image, 800, 0, imaging.Box)
 		log.Println("Image do resizing")
 		// STORE IMAGE TO THE ASSET DIRECTORY
@@ -131,10 +131,10 @@ func SaveFile(ctx *gin.Context, fileHeader *multipart.FileHeader, filename strin
 	errSave := ctx.SaveUploadedFile(fileHeader, fmt.Sprintf("%s%s", DefaultPathAssetFile, filename))
 
 	if errSave != nil {
-		helpers.LogIfError("STORE IMAGE", errSave)
+		helpers.LogIfError("STORE FILE", errSave)
 		return true
 	} else {
-		log.Println("Successfully store image to the assets directory")
+		log.Println("Successfully store file to the assets directory")
 		return false
 	}
 }

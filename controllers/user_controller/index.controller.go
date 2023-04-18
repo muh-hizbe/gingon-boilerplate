@@ -1,6 +1,7 @@
 package user_controller
 
 import (
+	"fmt"
 	"gingon-boilerplate/database"
 	"gingon-boilerplate/models"
 	"gingon-boilerplate/utils"
@@ -12,9 +13,21 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 func GetAll(ctx *gin.Context) {
+	log.Println("this logging test")
+	log.Println("ERR", "this logging test")
+	log.Println("INFO", "this logging test")
+	claimsData, isExist := ctx.Get("claimsData")
+	log.Println("WARN", "this logging test")
+	if isExist {
+		claims := claimsData.(jwt.MapClaims)
+		role := claims["role"]
+		fmt.Println("role", role)
+	}
+
 	user := new([]responses.UserResponse)
 
 	// err := database.DB.Model(models.User{}).First(&user).Error

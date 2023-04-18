@@ -11,4 +11,4 @@ func CorsConfig() gin.HandlerFunc {
 	config := cors.DefaultConfig()
 	config.AllowOrigins = origins	
 	return cors.New(config)
-}
+} 
